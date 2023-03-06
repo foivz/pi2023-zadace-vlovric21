@@ -28,7 +28,7 @@ Ovaj programski proizvod nudi prati sljedeće specifikacije:
 * Informacija o završetku obrade zahtjeva se šalje e-mailom korisniku koji je podnio zahtjev
 
 ## Zadatak
-(U root repozitorija učitajte zadatak koji ste dobili i potom ovdje stavite link na njegovo otvaranje!)
+PDF dobivenog zadatka se nalazi [ovdje](https://github.com/foivz/pi2023-zadace-vlovric21/blob/master/Zadatak%20-%20Help%20Desk%20za%20CIP.pdf)
 
 ## Resursi
 (Zadaće je obvezno predati u obliku Wiki stranica na ovom repozitoriju. Slike i druge artefakte koje ćete koristiti na wiki stranicama smjestite u mapu dokumentacije u repozitoriju!)
