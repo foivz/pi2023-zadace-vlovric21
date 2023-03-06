@@ -7,22 +7,25 @@ Molim vas izmijenite ovaj dokument kako biste u njemu naveli naziv i kratak opis
 
 A sada, vrijeme je za prvi korak rada na vašem projektu. 🙂 Za upis/opis vašeg programskog proizvoda molimo vas koristite **predložak** koji je naveden u nastavku. Započnite tako da kliknete na *olovku* u desnom gornjem kutu ovoga dokumenta te izbrišite sve što je iznad _Naziva projekta_, kao i sve upute koje su navedene u zagradama u predlošku ispod.
 
-# Naziv projekta
-(U redak iznad navedite naziv projekta koji ste dobili za analizu!)
+# Softver Help Desk za Centar za informatičku podršku (CIP)
 
 ## Podaci o studentu
-(Ispod promijenite samo drugi redak tablice!)
 
-Ime i prezime | E-mail adresa (FOI) | JMBAG | Github korisničko ime
-------------  | ------------------- | ----- | ---------------------
-Ime i prezime | mojaadresa@foi.hr | 000000000 | githubuser
+Ime i prezime | E-mail adresa (FOI)         | JMBAG     | Github korisničko ime
+------------  | --------------------------- | --------- | ---------------------
+Viktor Lovrić | vlovric21@student.foi.hr    | 0016154953 | vlovric21
 
 
 ## Opis domene
-(Vlastitim riječima opišite domenu ili problem koji pokriva projekt vaše zadaće!)
+Problem kojeg pokriva ovaj projekt je komunikacija CIP-a sa nastavnim i nenastavnim osobljem u obliku zahtjeva (eng. *tickets*) te praćenje i dokumentiranje istih.
 
 ## Specifikacija projekta
-(Vlastitim riječima opišite zahtjeve za izradu ovog programskog proizvoda!)
+Ovaj programski proizvod nudi prati sljedeće specifikacije:
+* Prijava nastavnog/nenastavnog osoblja (*korisnika*) i djelatnika CIP-a (*djelatnika*)
+* Korisnik može predati zahtjev sa informacijama o problemu
+* Djelatnik može pregledavati zahtjeve i dodjeljivati im prioritete
+* Djelatnik može mijenjati status zahtjeva i upisivati komentare
+* Informacija o završetku obrade zahtjeva se šalje e-mailom korisniku koji je podnio zahtjev
 
 ## Zadatak
 (U root repozitorija učitajte zadatak koji ste dobili i potom ovdje stavite link na njegovo otvaranje!)
