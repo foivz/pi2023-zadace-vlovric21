@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HelpDesk.Models;
+using HelpDesk.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,23 @@ namespace HelpDesk
         public FrmMain()
         {
             InitializeComponent();
+        }
+
+        private void dgvRequestList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            ShowRequests();
+        }
+        private void ShowRequests()
+        {
+            List<Request> requests = RequestRepository.GetRequests();
+            dgvRequestList.DataSource = requests;
+
+
         }
     }
 }

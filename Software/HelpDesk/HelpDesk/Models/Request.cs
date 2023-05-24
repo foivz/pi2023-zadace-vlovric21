@@ -8,7 +8,7 @@ namespace HelpDesk.Models
 {
     public class Request
     {
-        //fali redni broj al to cu kasnije
+        public int Id { get; set; } //umjesto rdbr
         public int Username { get; set; }
         public DateTime Time { get; set; }
         public string Description { get; set; }

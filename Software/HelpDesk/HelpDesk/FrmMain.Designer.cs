@@ -28,35 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvPopisZahtjeva = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPopisZahtjeva)).BeginInit();
+            this.dgvRequestList = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRequestList)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvPopisZahtjeva
+            // dgvRequestList
             // 
-            this.dgvPopisZahtjeva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPopisZahtjeva.Location = new System.Drawing.Point(131, 27);
-            this.dgvPopisZahtjeva.Name = "dgvPopisZahtjeva";
-            this.dgvPopisZahtjeva.RowHeadersWidth = 51;
-            this.dgvPopisZahtjeva.RowTemplate.Height = 24;
-            this.dgvPopisZahtjeva.Size = new System.Drawing.Size(668, 422);
-            this.dgvPopisZahtjeva.TabIndex = 0;
+            this.dgvRequestList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvRequestList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRequestList.Location = new System.Drawing.Point(176, 12);
+            this.dgvRequestList.Name = "dgvRequestList";
+            this.dgvRequestList.RowHeadersWidth = 51;
+            this.dgvRequestList.RowTemplate.Height = 24;
+            this.dgvRequestList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRequestList.Size = new System.Drawing.Size(729, 435);
+            this.dgvRequestList.TabIndex = 0;
+            this.dgvRequestList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRequestList_CellContentClick);
             // 
-            // frmMain
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvPopisZahtjeva);
-            this.Name = "frmMain";
+            this.ClientSize = new System.Drawing.Size(1006, 753);
+            this.Controls.Add(this.dgvRequestList);
+            this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPopisZahtjeva)).EndInit();
+            this.Load += new System.EventHandler(this.FrmMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRequestList)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvPopisZahtjeva;
+        private System.Windows.Forms.DataGridView dgvRequestList;
     }
 }

@@ -17,7 +17,7 @@ namespace HelpDesk
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            DB.SetConfiguration("PI2023_IPS23_vlovric21", "vlovrci21", "AANR%N)m");
+            DB.SetConfiguration("IPS23_vlovric21", "vlovric21", "AANR%N)m");
             Application.Run(new FrmLogin());
         }
     }
