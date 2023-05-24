@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HelpDesk.Models;
+using HelpDesk.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +14,7 @@ namespace HelpDesk
 {
     public partial class FrmLogin : Form
     {
-        string username = "test";
-        string password = "test";
+        public static Submitter LoggedSubmitter { get; set; }
         public FrmLogin()
         {
             InitializeComponent();
@@ -39,7 +40,8 @@ namespace HelpDesk
                 MessageBox.Show("Unesite lozinku!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else
             {
-                if(txtUsername.Text == username && txtPassword.Text == password)
+                LoggedSubmitter = SubmitterRepository.GetSubmitter(txtUsername.Text);
+                if(LoggedSubmitter != null && LoggedSubmitter.Password == txtPassword.Text)
                 {
                     FrmMain frmMain = new FrmMain();
                     MessageBox.Show("Uspješna prijava!", "Prijavljeni ste", MessageBoxButtons.OK, MessageBoxIcon.Information);
