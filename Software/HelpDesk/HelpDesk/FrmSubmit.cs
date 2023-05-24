@@ -16,5 +16,31 @@ namespace HelpDesk
         {
             InitializeComponent();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIdentity_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtDate_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void FrmSubmit_Load(object sender, EventArgs e)
+        {
+            txtIdentity.Text = FrmLogin.LoggedSubmitter.ToString();
+            txtDate.Text = DateTime.Now.ToString();
+        }
     }
 }

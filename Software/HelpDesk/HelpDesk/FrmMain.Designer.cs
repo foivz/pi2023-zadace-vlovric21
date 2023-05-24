@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dgvRequestList = new System.Windows.Forms.DataGridView();
+            this.btnNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequestList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,11 +47,22 @@
             this.dgvRequestList.TabIndex = 0;
             this.dgvRequestList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRequestList_CellContentClick);
             // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(20, 26);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(129, 47);
+            this.btnNew.TabIndex = 1;
+            this.btnNew.Text = "Novi zahtjev";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 753);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.dgvRequestList);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -64,5 +76,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvRequestList;
+        private System.Windows.Forms.Button btnNew;
     }
 }

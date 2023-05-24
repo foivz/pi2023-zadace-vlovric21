@@ -35,5 +35,11 @@ namespace HelpDesk
 
 
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            FrmSubmit frmSubmit = new FrmSubmit();
+            frmSubmit.ShowDialog();
+        }
     }
 }
