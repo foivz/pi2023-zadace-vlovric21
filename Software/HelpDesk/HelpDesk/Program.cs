@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace HelpDesk
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            DB.SetConfiguration("PI2023_IPS23_vlovric21", "vlovrci21", "AANR%N)m");
+            Application.Run(new frmLogin());
         }
     }
 }
