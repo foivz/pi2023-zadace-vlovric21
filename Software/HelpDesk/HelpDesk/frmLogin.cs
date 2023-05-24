@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace HelpDesk
 {
-    public partial class frmLogin : Form
+    public partial class FrmLogin : Form
     {
         string username = "test";
         string password = "test";
-        public frmLogin()
+        public FrmLogin()
         {
             InitializeComponent();
         }
@@ -41,7 +41,12 @@ namespace HelpDesk
             {
                 if(txtUsername.Text == username && txtPassword.Text == password)
                 {
+                    FrmMain frmMain = new FrmMain();
                     MessageBox.Show("Uspješna prijava!", "Prijavljeni ste", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Hide();
+                    frmMain.ShowDialog();
+                    Close();
+                    
                 } else
                 {
                     MessageBox.Show("Neispravni podatci!", "Neuspješna prijava", MessageBoxButtons.OK, MessageBoxIcon.Error);
