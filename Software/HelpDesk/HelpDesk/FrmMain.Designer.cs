@@ -30,6 +30,7 @@
         {
             this.dgvRequestList = new System.Windows.Forms.DataGridView();
             this.btnNew = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequestList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,11 +58,22 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(23, 98);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(125, 48);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Obriši";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 753);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.dgvRequestList);
             this.Name = "FrmMain";
@@ -77,5 +89,6 @@
 
         private System.Windows.Forms.DataGridView dgvRequestList;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

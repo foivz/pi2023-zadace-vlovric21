@@ -65,5 +65,12 @@ namespace HelpDesk.Repositories
             };
             return request;
         }
+        public static void DeleteRequest(int id)
+        {
+            string sql = $"DELETE FROM dbo.Requests WHERE ID_request = {id}";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
     }
 }

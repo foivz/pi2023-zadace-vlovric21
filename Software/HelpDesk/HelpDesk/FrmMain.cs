@@ -46,5 +46,15 @@ namespace HelpDesk
         {
             ShowRequests();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            Request selectedRequest = dgvRequestList.CurrentRow.DataBoundItem as Request;
+            if(selectedRequest != null)
+            {
+                RequestRepository.DeleteRequest(selectedRequest.Id);
+                ShowRequests();
+            }
+        }
     }
 }
