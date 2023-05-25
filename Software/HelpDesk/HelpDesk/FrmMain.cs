@@ -39,7 +39,12 @@ namespace HelpDesk
         private void btnNew_Click(object sender, EventArgs e)
         {
             FrmSubmit frmSubmit = new FrmSubmit();
+            frmSubmit.RequestSubmitted += FrmSubmit_RequestSubmitted;
             frmSubmit.ShowDialog();
+        }
+        private void FrmSubmit_RequestSubmitted(object sender, EventArgs e)
+        {
+            ShowRequests();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelpDesk.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,10 @@ namespace HelpDesk.Models
         public bool CheckPassword(string password)
         {
             return Password == password;
+        }
+        public void PerformSubmittion(int id_request, string description, string status, Submitter submitter)
+        {
+            SubmittionRepository.SubmitRequest(id_request, description, status, submitter);
         }
     }
 }
