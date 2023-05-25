@@ -59,6 +59,22 @@ namespace HelpDesk.Repositories
             return submittion;
             
         }
+        public static int FindMaxID()
+        {
+            int maxId = 1;
+            string sql = "SELECT MAX(ID_request) AS MaxID FROM dbo.Requests";
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            if (reader.HasRows)
+            {
+                reader.Read();
+                maxId = int.Parse(reader["MaxID"].ToString());
+                reader.Close();
+            }
+            DB.CloseConnection();
+            return maxId;
+        }
+
         public static void SubmitRequest(int id_request, string description, string status, Submitter submitter)
         {
             string sql = $"INSERT INTO dbo.Requests (ID_request, time, description, status, ID_submitter) VALUES ({id_request}, CURRENT_TIMESTAMP, '{description}', '{status}', {submitter.Id})";

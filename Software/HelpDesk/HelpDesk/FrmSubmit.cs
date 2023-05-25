@@ -29,7 +29,8 @@ namespace HelpDesk
             var submitter = FrmLogin.LoggedSubmitter;
             string description = txtDescription.Text;
             string status = "Zaprimljen";
-            submitter.PerformSubmittion(6, description, status, submitter);
+            int maxid = SubmittionRepository.FindMaxID() + 1;
+            submitter.PerformSubmittion(maxid, description, status, submitter);
             RequestSubmitted?.Invoke(this, EventArgs.Empty);
             Close();
         }
