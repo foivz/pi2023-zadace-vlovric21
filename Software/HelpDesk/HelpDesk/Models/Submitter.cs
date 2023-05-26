@@ -20,5 +20,9 @@ namespace HelpDesk.Models
         {
             SubmittionRepository.SubmitRequest(id_request, description, status, submitter);
         }
+        public void PerformUpdate(int id, string description, string status, Submitter submitter)
+        {
+            SubmittionRepository.UpdateRequest(id, description, status, submitter);
+        }
     }
 }

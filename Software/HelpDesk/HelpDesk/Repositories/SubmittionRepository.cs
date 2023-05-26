@@ -82,9 +82,9 @@ namespace HelpDesk.Repositories
             DB.ExecuteCommand(sql);
             DB.CloseConnection();
         }
-        public static void UpdateRequest(int id_request, string description, string status, Submitter submitter)
+        public static void UpdateRequest(int id, string description, string status, Submitter submitter)
         {
-            string sql = $"UPDATE dbo.Requests SET ID_request = {id_request}, time = CURRENT_TIMESTAMP, description = '{description}, status = '{status}, ID_submitter = {submitter.Id}";
+            string sql = $"UPDATE dbo.Requests SET time = CURRENT_TIMESTAMP, description = '{description}', status = '{status}', ID_submitter = {submitter.Id} WHERE ID_request = {id}";
             DB.OpenConnection();
             DB.ExecuteCommand(sql);
             DB.CloseConnection();

@@ -17,6 +17,10 @@ namespace HelpDesk
         public FrmMain()
         {
             InitializeComponent();
+            dgvRequestList.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvRequestList.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+
         }
 
         private void dgvRequestList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -33,6 +37,18 @@ namespace HelpDesk
             List<Request> requests = RequestRepository.GetRequests(FrmLogin.LoggedSubmitter.Id);
             dgvRequestList.DataSource = requests;
 
+            dgvRequestList.DefaultCellStyle.BackColor = Color.FromArgb(44, 44, 44);
+            dgvRequestList.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(44, 44, 44);
+            dgvRequestList.DefaultCellStyle.ForeColor = Color.White;
+            dgvRequestList.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(44, 44, 44);
+            dgvRequestList.DefaultCellStyle.SelectionBackColor = Color.FromArgb(194, 214, 224);
+            dgvRequestList.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgvRequestList.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(44, 44, 44);
+            dgvRequestList.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(194, 214, 224);
+
+            dgvRequestList.EnableHeadersVisualStyles = false;
+
+
             dgvRequestList.Columns["Id_submitter"].Visible = false;
             dgvRequestList.Columns["Id"].HeaderText = "Broj zahtjeva";
             dgvRequestList.Columns["FullName"].HeaderText = "Zahtjev podnio";
@@ -41,7 +57,12 @@ namespace HelpDesk
             dgvRequestList.Columns["undertaken"].HeaderText = "Preuzeo";
             dgvRequestList.Columns["Comment"].HeaderText = "Komentari";
 
-
+            foreach (DataGridViewColumn column in dgvRequestList.Columns)
+            {
+                column.HeaderCell.Style.BackColor = Color.FromArgb(44, 44, 44);
+                column.HeaderCell.Style.ForeColor = Color.White;
+                column.HeaderCell.Style.Font = new Font("Arial", 12, FontStyle.Bold);
+            }
 
         }
 
@@ -72,8 +93,13 @@ namespace HelpDesk
             if (selectedRequest != null)
             {
                 FrmUpdate frmUpdate = new FrmUpdate(selectedRequest);
+                frmUpdate.RequestUpdated += FrmUpdate_RequestUpdated;
                 frmUpdate.ShowDialog();
             }
+        }
+        private void FrmUpdate_RequestUpdated(object sender, EventArgs e)
+        {
+            ShowRequests();
         }
     }
 }
