@@ -50,13 +50,14 @@
             this.dgvRequestList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvRequestList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvRequestList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.dgvRequestList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRequestList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRequestList.Location = new System.Drawing.Point(208, 70);
             this.dgvRequestList.Name = "dgvRequestList";
             this.dgvRequestList.RowHeadersWidth = 51;
             this.dgvRequestList.RowTemplate.Height = 24;
             this.dgvRequestList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRequestList.Size = new System.Drawing.Size(962, 255);
+            this.dgvRequestList.Size = new System.Drawing.Size(962, 534);
             this.dgvRequestList.TabIndex = 0;
             this.dgvRequestList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRequestList_CellContentClick);
             // 

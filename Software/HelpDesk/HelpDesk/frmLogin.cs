@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -44,7 +45,6 @@ namespace HelpDesk
                 if(LoggedSubmitter != null && LoggedSubmitter.Password == txtPassword.Text)
                 {
                     FrmMain frmMain = new FrmMain();
-                    MessageBox.Show("Uspješna prijava!", "Prijavljeni ste", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Hide();
                     frmMain.ShowDialog();
                     Close();

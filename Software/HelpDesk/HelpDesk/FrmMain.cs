@@ -106,6 +106,11 @@ namespace HelpDesk
         {
             string search = txtSearch.Text;
             List<Request> requestsSearch = RequestRepository.GetRequestsSearch(FrmLogin.LoggedSubmitter.Id, search);
+            if (requestsSearch.Count == 0)
+            {
+                MessageBox.Show("Nije pronađen nijedan zahtjev!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            } else
+            {
             dgvRequestList.DataSource = requestsSearch;
 
             dgvRequestList.Columns["Id_submitter"].Visible = false;
@@ -115,6 +120,7 @@ namespace HelpDesk
             dgvRequestList.Columns["Description"].HeaderText = "Opis";
             dgvRequestList.Columns["undertaken"].HeaderText = "Preuzeo";
             dgvRequestList.Columns["Comment"].HeaderText = "Komentari";
+            }
 
         }
 
