@@ -31,6 +31,7 @@
             this.dgvRequestList = new System.Windows.Forms.DataGridView();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequestList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.dgvRequestList.RowHeadersWidth = 51;
             this.dgvRequestList.RowTemplate.Height = 24;
             this.dgvRequestList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRequestList.Size = new System.Drawing.Size(729, 435);
+            this.dgvRequestList.Size = new System.Drawing.Size(1062, 435);
             this.dgvRequestList.TabIndex = 0;
             this.dgvRequestList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRequestList_CellContentClick);
             // 
@@ -60,19 +61,30 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(23, 98);
+            this.btnDelete.Location = new System.Drawing.Point(20, 178);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(125, 48);
+            this.btnDelete.Size = new System.Drawing.Size(129, 51);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Obriši";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(20, 98);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(128, 54);
+            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.Text = "Ažuriraj zahtjev";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 753);
+            this.ClientSize = new System.Drawing.Size(1282, 853);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.dgvRequestList);
@@ -90,5 +102,6 @@
         private System.Windows.Forms.DataGridView dgvRequestList;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

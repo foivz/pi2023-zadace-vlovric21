@@ -27,10 +27,10 @@ namespace HelpDesk.Repositories
             return submittion;
         }
 
-        public static List<Submittion> GetSubmittions()
+        public static List<Submittion> GetSubmittions(int id)
         {
             List<Submittion> submittions = new List<Submittion>();
-            string sql = "SELECT * FROM dbo.Requests";
+            string sql = $"SELECT * FROM dbo.Requests WHERE ID_submitter = {id}";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
             while (reader.Read())
@@ -78,6 +78,13 @@ namespace HelpDesk.Repositories
         public static void SubmitRequest(int id_request, string description, string status, Submitter submitter)
         {
             string sql = $"INSERT INTO dbo.Requests (ID_request, time, description, status, ID_submitter) VALUES ({id_request}, CURRENT_TIMESTAMP, '{description}', '{status}', {submitter.Id})";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+        public static void UpdateRequest(int id_request, string description, string status, Submitter submitter)
+        {
+            string sql = $"UPDATE dbo.Requests SET ID_request = {id_request}, time = CURRENT_TIMESTAMP, description = '{description}, status = '{status}, ID_submitter = {submitter.Id}";
             DB.OpenConnection();
             DB.ExecuteCommand(sql);
             DB.CloseConnection();

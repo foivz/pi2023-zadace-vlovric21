@@ -30,8 +30,17 @@ namespace HelpDesk
         }
         private void ShowRequests()
         {
-            List<Request> requests = RequestRepository.GetRequests();
+            List<Request> requests = RequestRepository.GetRequests(FrmLogin.LoggedSubmitter.Id);
             dgvRequestList.DataSource = requests;
+
+            dgvRequestList.Columns["Id_submitter"].Visible = false;
+            dgvRequestList.Columns["Id"].HeaderText = "Broj zahtjeva";
+            dgvRequestList.Columns["FullName"].HeaderText = "Zahtjev podnio";
+            dgvRequestList.Columns["Time"].HeaderText = "Vrijeme";
+            dgvRequestList.Columns["Description"].HeaderText = "Opis";
+            dgvRequestList.Columns["undertaken"].HeaderText = "Preuzeo";
+            dgvRequestList.Columns["Comment"].HeaderText = "Komentari";
+
 
 
         }
@@ -54,6 +63,16 @@ namespace HelpDesk
             {
                 RequestRepository.DeleteRequest(selectedRequest.Id);
                 ShowRequests();
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Request selectedRequest = dgvRequestList.CurrentRow.DataBoundItem as Request;
+            if (selectedRequest != null)
+            {
+                FrmUpdate frmUpdate = new FrmUpdate(selectedRequest);
+                frmUpdate.ShowDialog();
             }
         }
     }

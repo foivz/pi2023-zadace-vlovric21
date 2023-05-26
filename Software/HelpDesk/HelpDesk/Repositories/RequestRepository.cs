@@ -27,10 +27,10 @@ namespace HelpDesk.Repositories
             DB.CloseConnection();
             return request;
         }
-        public static List<Request> GetRequests()
+        public static List<Request> GetRequests(int id)
         {
             List<Request> requests = new List<Request> ();
-            string sql = "SELECT * FROM dbo.Requests";
+            string sql = $"SELECT * FROM dbo.Requests WHERE ID_submitter = {id}";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
             while (reader.Read())
@@ -40,13 +40,17 @@ namespace HelpDesk.Repositories
             }
             reader.Close();
             DB.CloseConnection();
+            foreach(Request request in requests)
+            {
+                request.FullName = GetFullName(request.Id_submitter);
+            }
 
             return requests;
         }
         private static Request CreateObject(SqlDataReader reader)
         {
             int id = int.Parse(reader["ID_request"].ToString());
-            int username = int.Parse(reader["ID_submitter"].ToString());
+            int id_submitter = int.Parse(reader["ID_submitter"].ToString());
             DateTime time = DateTime.Parse(reader["time"].ToString());
             string description = reader["description"].ToString();
             string undertaken = reader["undertaken"].ToString();
@@ -56,7 +60,7 @@ namespace HelpDesk.Repositories
             var request = new Request
             {
                 Id = id,
-                Username = username,
+                Id_submitter = id_submitter,
                 Time = time,
                 Description = description,
                 Undertaken = undertaken,
@@ -71,6 +75,23 @@ namespace HelpDesk.Repositories
             DB.OpenConnection();
             DB.ExecuteCommand(sql);
             DB.CloseConnection();
+        }
+        public static string GetFullName(int id)
+        {
+            string firstname = null;
+            string lastname = null;
+            string sql = $"SELECT rs.firstname, rs.lastname FROM dbo.Request_Submitter rs JOIN dbo.Requests r ON rs.ID_submitter = r.ID_submitter WHERE r.ID_submitter = {id}";
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            if (reader.HasRows)
+            {
+                reader.Read();
+                firstname = reader["firstname"].ToString();
+                lastname = reader["lastname"].ToString();
+                reader.Close();
+            }
+            DB.CloseConnection();
+            return firstname + " " + lastname;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using HelpDesk.Repositories;
+﻿using HelpDesk.Models;
+using HelpDesk.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,6 +49,18 @@ namespace HelpDesk
         {
             txtIdentity.Text = FrmLogin.LoggedSubmitter.ToString();
             txtDate.Text = DateTime.Now.ToString();
+            
         }
+
+        /* ne postoji vise ali jednom mi se crashalo kad sam obrisao pa necu dirat
+        private void cboID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var currentSubmittion = cboID.SelectedItem as Submittion;
+            txtIdentity.Text = FrmLogin.LoggedSubmitter.ToString();
+            txtDate.Text = currentSubmittion.Date.ToString();
+            txtDescription.Text = currentSubmittion.Description;
+
+        }
+        */
     }
 }
