@@ -129,5 +129,15 @@ namespace HelpDesk
             ShowRequests();
             txtSearch.Text = null;
         }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void toolTip1_Popup_1(object sender, PopupEventArgs e)
+        {
+
+        }
     }
 }
