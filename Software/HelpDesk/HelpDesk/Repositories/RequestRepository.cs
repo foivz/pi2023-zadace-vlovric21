@@ -93,5 +93,25 @@ namespace HelpDesk.Repositories
             DB.CloseConnection();
             return firstname + " " + lastname;
         }
+        public static List<Request> GetRequestsSearch(int id, string search)
+        {
+            List<Request> requests = new List<Request>();
+            string sql = $"SELECT * FROM dbo.Requests WHERE ID_submitter = {id} AND description LIKE '%{search}%'";
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            while (reader.Read())
+            {
+                Request request = CreateObject(reader);
+                requests.Add(request);
+            }
+            reader.Close();
+            DB.CloseConnection();
+            foreach (Request request in requests)
+            {
+                request.FullName = GetFullName(request.Id_submitter);
+            }
+
+            return requests;
+        }
     }
 }

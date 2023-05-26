@@ -101,5 +101,27 @@ namespace HelpDesk
         {
             ShowRequests();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string search = txtSearch.Text;
+            List<Request> requestsSearch = RequestRepository.GetRequestsSearch(FrmLogin.LoggedSubmitter.Id, search);
+            dgvRequestList.DataSource = requestsSearch;
+
+            dgvRequestList.Columns["Id_submitter"].Visible = false;
+            dgvRequestList.Columns["Id"].HeaderText = "Broj zahtjeva";
+            dgvRequestList.Columns["FullName"].HeaderText = "Zahtjev podnio";
+            dgvRequestList.Columns["Time"].HeaderText = "Vrijeme";
+            dgvRequestList.Columns["Description"].HeaderText = "Opis";
+            dgvRequestList.Columns["undertaken"].HeaderText = "Preuzeo";
+            dgvRequestList.Columns["Comment"].HeaderText = "Komentari";
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ShowRequests();
+            txtSearch.Text = null;
+        }
     }
 }
