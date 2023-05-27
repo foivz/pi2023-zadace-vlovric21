@@ -17,6 +17,7 @@ namespace HelpDesk
         public FrmMain()
         {
             InitializeComponent();
+            Text = FrmLogin.LoggedSubmitter.ToString() + "                                                                                                                                                             " + "HelpDesk";
             dgvRequestList.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvRequestList.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 

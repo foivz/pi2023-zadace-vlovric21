@@ -134,7 +134,7 @@
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.txtIdentity);
             this.Name = "FrmUpdate";
-            this.Text = "FrmUpdate";
+            this.Text = "Ažuriranje zahtjeva";
             this.Load += new System.EventHandler(this.FrmUpdate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
