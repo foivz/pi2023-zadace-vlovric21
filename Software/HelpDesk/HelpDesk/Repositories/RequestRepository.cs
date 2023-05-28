@@ -12,6 +12,11 @@ namespace HelpDesk.Repositories
 {
     public class RequestRepository
     {
+        /// <summary>
+        /// Stvara objekt tipa Request sa id-om id sa njegovim podacima
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Stvoreni objekt zahtjeva sa podacima</returns>
         public static Request GetRequest(int id)
         { 
             Request request = null;
@@ -27,6 +32,11 @@ namespace HelpDesk.Repositories
             DB.CloseConnection();
             return request;
         }
+        /// <summary>
+        /// Vraća listu svih zahtjeva sa njihovim podacima, prima ID jer podnositelj smije vidjeti samo svoje zahtjeve
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Listu zahtjeva podnositelja</returns>
         public static List<Request> GetRequests(int id)
         {
             List<Request> requests = new List<Request> ();
@@ -50,6 +60,11 @@ namespace HelpDesk.Repositories
 
             return requests;
         }
+        /// <summary>
+        /// Stvara objekt i upisuje u njega podatke iz baze
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns>objekt sa upisanim podacima</returns>
         private static Request CreateObject(SqlDataReader reader)
         {
             int id = int.Parse(reader["ID_request"].ToString());
@@ -72,6 +87,10 @@ namespace HelpDesk.Repositories
             };
             return request;
         }
+        /// <summary>
+        /// Briše zahtjev sa određenim ID-om
+        /// </summary>
+        /// <param name="id"></param>
         public static void DeleteRequest(int id)
         {
             string sql = $"DELETE FROM dbo.Requests WHERE ID_request = {id}";
@@ -79,6 +98,11 @@ namespace HelpDesk.Repositories
             DB.ExecuteCommand(sql);
             DB.CloseConnection();
         }
+        /// <summary>
+        /// Vraća ime i prezime podnositelja prema vanjskom ključu u tablici, mogao sam samo uzeti FrmLoggin.LoggedSubmitter.ToString() ali htio sam radit sa vanjskim ključevima
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Ime i prezime podnositelja</returns>
         public static string GetFullName(int id)
         {
             string firstname = null;
@@ -96,6 +120,12 @@ namespace HelpDesk.Repositories
             DB.CloseConnection();
             return firstname + " " + lastname;
         }
+        /// <summary>
+        /// Vraća listu zahtjeva prema sadržaju, služi za pretraživanje prema "description" stupcu.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="search"></param>
+        /// <returns>Listu zahtjeva koji odgovaraju pretraživanju</returns>
         public static List<Request> GetRequestsSearch(int id, string search)
         {
             List<Request> requests = new List<Request>();

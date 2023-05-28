@@ -11,16 +11,31 @@ namespace HelpDesk.Repositories
 {
     public class SubmitterRepository
     {
+        /// <summary>
+        /// Stvara objekt tipa Submitter prema korisničkom imenu
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns>Objekt podnositelja sa njegovim podatcima</returns>
         public static Submitter GetSubmitter(string username)
         {
             string sql = $"SELECT * FROM dbo.Request_Submitter WHERE username = '{username}'";
             return FetchSubmitter(sql);
         }
+        /// <summary>
+        /// Stvara objekt tipa Submitter prema njegovom ID-u
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Objekt podnositelja sa njegovim podatcima</returns>
         public static Submitter GetSubmitter(int id)
         {
             string sql = $"SELECT * FROM dbo.Request_Submitter WHERE ID_submitter = {id}";
             return FetchSubmitter(sql);
         }
+        /// <summary>
+        /// Stvara instancu.
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
         private static Submitter FetchSubmitter(string sql)
         {
             DB.OpenConnection();
@@ -36,6 +51,11 @@ namespace HelpDesk.Repositories
             DB.CloseConnection();
             return submitter;
         }
+        /// <summary>
+        /// Stvara novu instancu i upisuje u nju podatke iz baze.
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns>Objekt podnositelja sa svim njegovim podatcima iz baze</returns>
         private static Submitter CreateObject(SqlDataReader reader)
         {
             int id = int.Parse(reader["ID_submitter"].ToString());
