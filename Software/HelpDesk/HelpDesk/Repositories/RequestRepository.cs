@@ -40,9 +40,12 @@ namespace HelpDesk.Repositories
             }
             reader.Close();
             DB.CloseConnection();
+            int i = 1;
             foreach(Request request in requests)
             {
                 request.FullName = GetFullName(request.Id_submitter);
+                request.OrdNum = i;
+                i++;
             }
 
             return requests;

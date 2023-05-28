@@ -40,10 +40,10 @@
             // 
             // txtIdentity
             // 
-            this.txtIdentity.Location = new System.Drawing.Point(206, 27);
+            this.txtIdentity.Location = new System.Drawing.Point(220, 27);
             this.txtIdentity.Name = "txtIdentity";
             this.txtIdentity.ReadOnly = true;
-            this.txtIdentity.Size = new System.Drawing.Size(137, 22);
+            this.txtIdentity.Size = new System.Drawing.Size(144, 22);
             this.txtIdentity.TabIndex = 0;
             // 
             // txtDate

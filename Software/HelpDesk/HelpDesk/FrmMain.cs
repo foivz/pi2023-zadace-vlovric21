@@ -51,7 +51,8 @@ namespace HelpDesk
 
 
             dgvRequestList.Columns["Id_submitter"].Visible = false;
-            dgvRequestList.Columns["Id"].HeaderText = "Broj zahtjeva";
+            dgvRequestList.Columns["Id"].Visible = false;
+            dgvRequestList.Columns["OrdNum"].HeaderText = "Broj zahtjeva";
             dgvRequestList.Columns["FullName"].HeaderText = "Zahtjev podnio";
             dgvRequestList.Columns["Time"].HeaderText = "Vrijeme";
             dgvRequestList.Columns["Description"].HeaderText = "Opis";

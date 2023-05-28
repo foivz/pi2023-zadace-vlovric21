@@ -9,6 +9,7 @@ namespace HelpDesk.Models
     public class Request
     {
         public int Id { get; set; } //umjesto rdbr
+        public int OrdNum { get; set; }
         public int Id_submitter { get; set; }
         public string FullName { get; set; }
         public DateTime Time { get; set; }
